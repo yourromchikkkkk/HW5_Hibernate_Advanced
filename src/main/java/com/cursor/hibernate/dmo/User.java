@@ -18,8 +18,7 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER)
     List<CreditCard> creditCards;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "cart_id", cascade = CascadeType.ALL)
     Cart userCart;
 
     public User() {}
