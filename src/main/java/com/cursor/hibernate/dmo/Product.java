@@ -16,7 +16,12 @@ public class Product {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     Category category;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "cart")
+    @JoinTable(
+            name = "cart_product",
+            joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
+    )
     List<Cart> carts;
 
     public Product() {}

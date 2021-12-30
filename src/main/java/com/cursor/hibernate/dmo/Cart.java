@@ -4,17 +4,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "cart")
+@Table(name = "carts")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user_id")
     User user;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "products_ids", referencedColumnName = "id")
+    @JoinTable(
+            name = "cart_product",
+            joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
+    )
     List<Product> products;
 
     public Cart() {}
