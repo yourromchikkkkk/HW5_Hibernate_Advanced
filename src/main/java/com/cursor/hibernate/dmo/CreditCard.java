@@ -17,7 +17,7 @@ public class CreditCard {
     @Column(name = "cvv", nullable = false, length = 3)
     String cvv;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
     User user;
 

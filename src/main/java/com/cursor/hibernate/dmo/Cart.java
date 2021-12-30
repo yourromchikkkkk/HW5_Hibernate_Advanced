@@ -13,7 +13,7 @@ public class Cart {
     @OneToOne
     User user;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "products_ids", referencedColumnName = "id")
     List<Product> products;
 

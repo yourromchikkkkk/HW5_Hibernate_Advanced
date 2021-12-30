@@ -12,7 +12,7 @@ public class Product {
     @Column(name = "product_name", unique = true, nullable = false, length = 15)
     String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     Category category;
 

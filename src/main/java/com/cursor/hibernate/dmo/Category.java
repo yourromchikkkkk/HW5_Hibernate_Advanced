@@ -13,7 +13,7 @@ public class Category {
     @Column(name = "category_name", unique = true , length = 15, nullable = false)
     String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     List<Product> products;
 
     public Category() {}
