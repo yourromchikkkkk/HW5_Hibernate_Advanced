@@ -16,7 +16,7 @@ public class User {
     @Column(name = "password", nullable = false, length = 15)
     String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
     List<CreditCard> creditCards = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)

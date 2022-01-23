@@ -16,7 +16,7 @@ public class Product {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     Category category;
 
-    @ManyToMany(mappedBy = "cart")
+    @ManyToMany
     @JoinTable(
             name = "cart_product",
             joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"),

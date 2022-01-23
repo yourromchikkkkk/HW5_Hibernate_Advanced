@@ -10,7 +10,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @OneToOne(mappedBy = "user_id")
+    @OneToOne(mappedBy = "userCart")
     User user;
 
     @ManyToMany(cascade = CascadeType.ALL)
