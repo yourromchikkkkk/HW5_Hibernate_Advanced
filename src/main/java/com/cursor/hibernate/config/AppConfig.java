@@ -11,7 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.cursor.hibernate")
+@ComponentScans(value = { @ComponentScan("com.cursor.hibernate.dao"),
+    @ComponentScan("com.cursor.hibernate.services")})
 public class AppConfig{
 
     @Bean

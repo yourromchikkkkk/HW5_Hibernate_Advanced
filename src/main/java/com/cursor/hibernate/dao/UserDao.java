@@ -3,11 +3,13 @@ package com.cursor.hibernate.dao;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import com.cursor.hibernate.dmo.User;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Objects;
 
-@Component
+@Repository
 public class UserDao {
     @PersistenceContext
     EntityManager entityManager;

@@ -9,7 +9,7 @@ public class CreditCard {
     Long id;
 
     @Column(name = "number", unique = true, nullable = false)
-    int number;
+    long number;
 
     @Column(name = "date", nullable = false,length = 5)
     String date;
@@ -31,11 +31,11 @@ public class CreditCard {
         this.id = id;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(long number) {
         this.number = number;
     }
 

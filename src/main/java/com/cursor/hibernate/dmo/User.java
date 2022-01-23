@@ -1,6 +1,7 @@
 package com.cursor.hibernate.dmo;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,12 +17,19 @@ public class User {
     String password;
 
     @OneToMany(fetch = FetchType.EAGER)
-    List<CreditCard> creditCards;
+    List<CreditCard> creditCards = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     Cart userCart;
 
     public User() {}
+
+    public User(String login, String password, CreditCard creditCard, Cart cart) {
+        this.login = login;
+        this.password = password;
+        addCreditCard(creditCard);
+        this.userCart = cart;
+    }
 
     public Long getId() {
         return id;

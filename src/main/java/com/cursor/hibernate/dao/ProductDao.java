@@ -1,13 +1,13 @@
 package com.cursor.hibernate.dao;
 
 import com.cursor.hibernate.dmo.Product;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Objects;
 
-@Component
+@Repository
 public class ProductDao {
     @PersistenceContext
     EntityManager entityManager;
@@ -25,7 +25,7 @@ public class ProductDao {
     }
 
     public Product findById(int id) {
-        if (id != 0) {
+        if (id > 0) {
             return entityManager.find(Product.class, id);
         } else {
             return null;

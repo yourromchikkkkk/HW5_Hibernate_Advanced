@@ -1,14 +1,13 @@
 package com.cursor.hibernate.dao;
 
-import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 import com.cursor.hibernate.dmo.Cart;
-
+import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Component
+@Repository
 public class CartDao {
     @PersistenceContext
     EntityManager entityManager;
