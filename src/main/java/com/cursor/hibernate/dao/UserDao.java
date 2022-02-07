@@ -12,7 +12,7 @@ import java.util.Objects;
 @Repository
 public class UserDao {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public void saveUser(User user) {
         if (!Objects.isNull(user)) {

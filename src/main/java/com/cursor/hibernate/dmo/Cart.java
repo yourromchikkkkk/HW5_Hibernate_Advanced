@@ -8,10 +8,10 @@ import java.util.List;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @OneToOne(mappedBy = "userCart")
-    User user;
+    private User user;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -19,7 +19,7 @@ public class Cart {
             joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
     )
-    List<Product> products;
+    private List<Product> products;
 
     public Cart() {}
 
@@ -49,5 +49,14 @@ public class Cart {
 
     public void addProduct(Product p) {
         products.add(p);
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "id=" + id +
+                ", user=" + user +
+                ", products=" + products +
+                '}';
     }
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
 @Component
 public class CreditCartDao {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public void saveCreditCard(CreditCard creditCard) {
         if (!Objects.isNull(creditCard)) {

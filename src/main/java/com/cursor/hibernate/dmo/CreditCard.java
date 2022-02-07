@@ -6,20 +6,20 @@ import javax.persistence.*;
 public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "number", unique = true, nullable = false)
-    long number;
+    private long number;
 
     @Column(name = "date", nullable = false,length = 5)
-    String date;
+    private String date;
 
     @Column(name = "cvv", nullable = false, length = 3)
-    String cvv;
+    private String cvv;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    User user;
+    private User user;
 
     public CreditCard() {}
 
@@ -62,4 +62,16 @@ public class CreditCard {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "id=" + id +
+                ", number=" + number +
+                ", date='" + date + '\'' +
+                ", cvv='" + cvv + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }
+

@@ -8,19 +8,19 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "login", unique = true, nullable = false, length = 15)
-    String login;
+    private String login;
 
     @Column(name = "password", nullable = false, length = 15)
-    String password;
+    private String password;
 
     @OneToMany(mappedBy = "user")
-    List<CreditCard> creditCards = new ArrayList<>();
+    private List<CreditCard> creditCards = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    Cart userCart;
+    private Cart userCart;
 
     public User() {}
 
@@ -65,6 +65,17 @@ public class User {
 
     public Cart getUserCart() {
         return userCart;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", creditCards=" + creditCards +
+                ", userCart=" + userCart +
+                '}';
     }
 
     public void setUserCart(Cart userCart) {

@@ -10,7 +10,7 @@ import java.util.Objects;
 @Repository
 public class ProductDao {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public void saveProduct(Product product) {
         if (!Objects.isNull(product)) {

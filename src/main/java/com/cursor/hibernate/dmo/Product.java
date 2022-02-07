@@ -7,14 +7,14 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "product_name", unique = true, nullable = false, length = 15)
-    String name;
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    Category category;
+    private Category category;
 
     @ManyToMany
     @JoinTable(
@@ -22,7 +22,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "cart_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
     )
-    List<Cart> carts;
+    private List<Cart> carts;
 
     public Product() {}
 
@@ -52,5 +52,15 @@ public class Product {
 
     public void addOneMoreCart(Cart c) {
         carts.add(c);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category=" + category +
+                ", carts=" + carts +
+                '}';
     }
 }

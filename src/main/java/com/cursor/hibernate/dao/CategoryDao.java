@@ -13,7 +13,7 @@ import java.util.Objects;
 @Repository
 public class CategoryDao {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public void saveCategory(Category category) {
         if (!Objects.isNull(category)) {

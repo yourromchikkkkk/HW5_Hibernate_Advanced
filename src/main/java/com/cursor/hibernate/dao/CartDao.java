@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 @Repository
 public class CartDao {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     public void saveCart(Cart cart) {
         if (!Objects.isNull(cart)) {

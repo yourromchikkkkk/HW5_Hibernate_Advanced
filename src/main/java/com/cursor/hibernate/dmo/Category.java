@@ -8,13 +8,13 @@ import java.util.List;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "category_name", unique = true , length = 15, nullable = false)
-    String name;
+    private String name;
 
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
-    List<Product> products;
+    private List<Product> products;
 
     public Category() {}
 
@@ -48,5 +48,14 @@ public class Category {
 
     public void addProduct(Product p) {
         products.add(p);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", products=" + products +
+                '}';
     }
 }
